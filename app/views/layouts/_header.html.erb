@@ -1,5 +1,13 @@
-<%=　link_to "Portfolio", root_path　%>
-<ul>
-<li><%= link_to "about", about_path %> </li>
-<li><%= link_to "search", search_path %></li>
-</ul>
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Portfolio", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "一覧", about_path %></li>
+            <li><%= link_to "検索", search_path %></li>
+            <li><%= link_to "ログイン", "#" %></li>
+            <li><%= link_to "ユーザー登録", "#" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
