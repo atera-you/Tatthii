@@ -4,4 +4,9 @@
 </h1>
 <%= @user.name %>,<%= @user.email %>
 
+<% if current_user.admin?  %>
+<%= link_to "delete",@user, method: :delete,
+              data: { confirm: "You sure?" } %>
+<% end %>
+
 
