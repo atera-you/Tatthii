@@ -5,8 +5,14 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "一覧", about_path %></li>
             <li><%= link_to "検索", search_path %></li>
-            <li><%= link_to "ログイン", "#" %></li>
-            <li><%= link_to "ユーザー登録", "#" %></li>
+          <% if logged_in? %>
+            <li><%= link_to "プロフィール", current_user %></li>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <li><%= link_to "編集", edit_user_path(current_user) %>
+          <% else %>
+            <li><%= link_to "ログイン", login_path %></li>
+            <li><%= link_to "ユーザー登録", new_user_path %></li>
+          <% end %>
           </ul>
         </nav>
       </div>
