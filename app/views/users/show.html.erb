@@ -9,4 +9,14 @@
               data: { confirm: "You sure?" } %>
 <% end %>
 
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Share (<%= @user.microposts.count %>)</h3>
+      <ol >
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+
 
