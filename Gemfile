@@ -24,15 +24,20 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+#デザイン
 gem 'bootstrap-sass', '3.4.1'
-
+#安全なパスワードの実装
 gem 'bcrypt',         '3.1.13'
-
+#ページネーション機能の実装
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
-
-gem 'image_processing', '~> 1.2'
+#リッチテキストの実装
+gem 'jquery-rails'
+gem 'summernote-rails', '~> 0.8.10.0'
+#画像の取り扱い
+gem 'rmagick'
+#タグ機能の実装
+gem 'acts-as-taggable-on','~> 6.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

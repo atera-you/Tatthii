@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   #post '/share', to:'microposts#create'
   #delete '/delete', to:'microposts#destroy'
   resources :users
-  resources :microposts, only:[:new,:create, :destroy]
+  resources :microposts, only:[:new, :index,:create, :destroy]
 end

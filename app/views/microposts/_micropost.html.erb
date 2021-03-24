@@ -1,8 +1,7 @@
 <li id="micropost-<%= micropost.id %>">
   
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content"><%= micropost.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-  </span>
+  <span class="content">  <%= micropost.content %> </span>
+  <span class="tag_list"><%=  render 'microposts/tag_list', tag_list: micropost.tag_list %> </span>
 </li>
+

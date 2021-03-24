@@ -4,6 +4,14 @@ class MicropostsController < ApplicationController
     def new
         @micropost = current_user.microposts.build
     end
+    
+    def index
+        if params[:tag_name]
+            @microposts = Micropost.tagged_with(params[:tag_name]).paginate(page: params[:page])
+        else
+            @microposts = Micropost.paginate(page: params[:page],per_page: 5)
+        end
+    end
 
     def create
         @micropost=current_user.microposts.build(micropost_params)
@@ -21,6 +29,6 @@ class MicropostsController < ApplicationController
 
     private
     def micropost_params
-        params.require(:micropost).permit(:content)
+        params.require(:micropost).permit(:content, :tag_list,:tag_name)
     end
 end

@@ -19,7 +19,11 @@ import "bootstrap"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-
-
-require("trix")
-require("@rails/actiontext")
+//= require jquery
+//= require jquery_ujs
+//= require popper
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+//= require activestorage
+//= require turbolinks
+//= require_tree .
