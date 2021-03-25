@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :logged_in_user, only: [:edit, :update, :destroy]
+before_action :logged_in_user, only: [:edit, :update, :destroy,:following]
 before_action :correct_user, only: [:edit, :update]
 
     def new
@@ -50,6 +50,12 @@ before_action :correct_user, only: [:edit, :update]
         User.find(params[:id]).destroy
         flash[:success] = "User deleted"
         redirect_to users_url
+    end
+
+    def following
+        @user = User.find(params[:id])
+        @users = @user.following.paginate(page: params[:page])
+        
     end
 
     private

@@ -38,6 +38,8 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'rmagick'
 #タグ機能の実装
 gem 'acts-as-taggable-on','~> 6.0'
+#検索フォームの実装
+gem 'ransack', '2.4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
