@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  root 'central#home'
-  get '/about',  to: 'central#about'
-  get '/search', to: 'central#search'
-  get '/share',  to: 'users#share'
-  get '/picture', to:'users#picture'
+  #get 'sessions/new'
+  root 'microposts#index'
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
@@ -13,9 +9,11 @@ Rails.application.routes.draw do
       get :following
     end
   end
-  resources :microposts, only:[:new, :index,:create, :destroy]
-    member do
-      get :
+  resources :microposts, only:[:new, :index,:create, :destroy] do
+    collection do
+      get :finder
     end
+  end
+
   resources :relationships, only:[:create,:destroy]
 end
