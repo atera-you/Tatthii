@@ -9,6 +9,10 @@
 
 body {
     padding-top: 60px;
+    
+      background-image:  image-url('Yellow.jpg')
+      
+    
   }
   
   section {
@@ -97,6 +101,39 @@ body {
 
   .twitter-tweet-twitter{
     display:none;
-  
   }
   
+  
+  .pictures {
+    margin-left: 150px;
+    display:flex;
+    flex-flow:wrap;
+  }
+  .picture{
+    width:50%;
+    box-sizing:content-box;
+  }
+
+  .tag{
+  display: inline-block;
+  margin: 0 .1em .6em 0;
+  padding: .6em;
+  line-height: 1;
+  text-decoration: none;
+  color: #0000ee;
+  background-color: #fff;
+  border: 1px solid #0000ee;
+  border-radius: 2em;
+  }
+
+
+  .instructions{
+  font-size: 20px;
+  }
+
+  .finder{
+  margin-left: 550px;
+  margin-top: 150px;
+  }
+
+

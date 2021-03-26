@@ -1,14 +1,15 @@
 
+
 <%= form_with(model: @micropost, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :content %>
-    <%= f.text_area :content, 'data-provider': :summernote,id:"summernote", placeholder: "Share new picture..." %>
+    <%= f.text_area :content, 'data-provider': :summernote,id:"summernote"%>
   </div>
   <div class="form-group">
   <%= f.label :tag_list %>
   <%= f.text_field :tag_list, value: @micropost.tag_list.join(',') %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Share", class: "btn btn-primary" %>
 <% end %>
 
