@@ -23,10 +23,6 @@ before_action :admin_user, only: :destroy
         @microposts = @user.microposts.paginate(page: params[:page],per_page: 10)
     end
 
-    def index
-
-    end
-
     def edit
         @user=User.find(params[:id])
     end

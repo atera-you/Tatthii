@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
-  resources :users do
+  resources :users, only:[:new, :create, :show, :edit, :update, :destroy] do
     member do
       get :following
     end
   end
-  resources :microposts, only:[:new, :index,:create, :destroy] do
+  resources :microposts, only:[:new, :index,:create, :destroy] o
     collection do
       get :finder
     end

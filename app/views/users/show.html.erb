@@ -2,7 +2,6 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
-<%= @user.name %>,<%= @user.email %>
 
 <section class="stats">
   <%= render 'shared/stats' if current_user?(@user) %>

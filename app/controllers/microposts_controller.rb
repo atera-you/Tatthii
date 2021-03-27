@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
             @microposts = Micropost.tagged_with(params[:tag_name]).paginate(page: params[:page])
         else
             @index = "all pictures"
-            @microposts = Micropost.paginate(page: params[:page],per_page: 10)
+            @microposts = Micropost.paginate(page: params[:page],per_page: 12)
         end
     end
 
