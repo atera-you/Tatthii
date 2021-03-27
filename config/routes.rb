@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :following
     end
   end
-  resources :microposts, only:[:new, :index,:create, :destroy] o
+  resources :microposts, only:[:new, :index,:create, :destroy] do
     collection do
       get :finder
     end
