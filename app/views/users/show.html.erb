@@ -7,7 +7,7 @@
   <%= render 'shared/stats' if current_user?(@user) %>
 </section>
 
-<% if current_user.admin?  %>
+<% if logged_in?&&current_user.admin?  %>
 <%= link_to "delete",@user, method: :delete,
               data: { confirm: "You sure?" } %>
 <% end %>
