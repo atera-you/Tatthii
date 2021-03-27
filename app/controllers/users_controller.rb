@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:edit, :update, :destroy,:following]
 before_action :correct_user, only: [:edit, :update]
+before_action :admin_user, only: :destroy
 
     def new
         @user=User.new
@@ -31,25 +32,21 @@ before_action :correct_user, only: [:edit, :update]
     end
 
     def update
-
-    end
-
-    def destroy
-
-    end
-
-    def share
-
-    end
-
-    def picture
+        @user= User.find(params[:id])
+        if @user.update(user_params)
+            flash[:success]="Profile update"
+            redirect_to @user
+        elsif
+        render 'edit'
+        
+        end
 
     end
 
     def destroy
         User.find(params[:id]).destroy
         flash[:success] = "User deleted"
-        redirect_to users_url
+        redirect_to request.referrer || current_user
     end
 
     def following
@@ -70,4 +67,7 @@ before_action :correct_user, only: [:edit, :update]
         redirect(root_url) unless @user == current_user
     end
 
+    def admin_user
+        redirect_to(root_url) unless current_user.admin?
+    end
 end
