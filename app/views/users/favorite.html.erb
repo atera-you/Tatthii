@@ -1,0 +1,9 @@
+<h3>尊い画像 </h3>
+<% if @microposts.any? %>
+<%= will_paginate @microposts %>
+
+<ol class= "pictures">
+<%= render @microposts %>
+</ol>
+<%= will_paginate @microposts %>
+<% end %>

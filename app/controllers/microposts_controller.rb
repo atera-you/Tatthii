@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
             @index = ("#{params[:tag_name]}の検索結果")
             @microposts = Micropost.tagged_with(params[:tag_name]).paginate(page: params[:page])
         else
-            @index = "all pictures"
+            @index = "全ての画像"
             @microposts = Micropost.paginate(page: params[:page],per_page: 12)
         end
     end
@@ -34,6 +34,7 @@ class MicropostsController < ApplicationController
     def finder
         
     end
+
 
 
     private

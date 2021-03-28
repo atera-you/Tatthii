@@ -20,7 +20,7 @@ before_action :admin_user, only: :destroy
 
     def show
         @user=User.find(params[:id])
-        @microposts = @user.microposts.paginate(page: params[:page],per_page: 10)
+        @microposts = @user.microposts.paginate(page: params[:page],per_page: 12)
     end
 
     def edit
@@ -50,6 +50,21 @@ before_action :admin_user, only: :destroy
         @users = @user.following.paginate(page: params[:page])
         
     end
+
+    def favorite 
+        @user = User.find(params[:id])
+        @users = @user.following
+        if @users.any?
+            @users.each do |user|
+            @micropost=Micropost.where(user_id: user.id)
+            end
+            @microposts=@micropost.paginate(page: params[:page],per_page: 12)
+        else
+            flash[:danger]="誰もフォローしてしません"
+            redirect_to root_path
+        end
+    end
+
 
     private
     def user_params
