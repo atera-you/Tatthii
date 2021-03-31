@@ -36,8 +36,7 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'rmagick'
 #タグ機能の実装
 gem 'acts-as-taggable-on','~> 6.0'
-#テスト用
-gem 'rspec-rails', '~> 3.8'
+
 #postgreSQLとの通信（herokuのため)
 group :production do
   gem 'pg', '1.1.4'
@@ -61,11 +60,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #テスト環境の立ち上げ速度アップ
-  gem 'spring-commands-rspec'
-  #テストデータの作成
-  gem 'factory_bot_rails', '~> 4.10.0'
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
 end
 
@@ -75,6 +69,14 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :development, :test do
+  #テスト用
+  gem 'rspec-rails', '~> 4.0.2'
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'spring-commands-rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
