@@ -42,7 +42,7 @@ before_action :admin_user, only: :destroy
     def destroy
         User.find(params[:id]).destroy
         flash[:success] = "User deleted"
-        redirect_to request.referrer || current_user
+        redirect_to root_path
     end
 
     def following
@@ -75,7 +75,7 @@ before_action :admin_user, only: :destroy
 
     def correct_user
         @user=User.find(params[:id])
-        redirect(root_url) unless @user == current_user
+        redirect_to(root_url) unless @user == current_user
     end
 
     def admin_user
