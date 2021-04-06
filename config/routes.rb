@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  #get 'sessions/new'
   root 'microposts#index'
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only:[:new, :create, :show, :edit, :update, :destroy] do
     member do
       get :following
+      get :followers
       get :favorite
     end
   end

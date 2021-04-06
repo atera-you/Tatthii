@@ -8,7 +8,7 @@
 </section>
 
 <% if logged_in?&&current_user.admin?  %>
-<%= link_to "delete",@user, method: :delete,
+  <%= link_to "delete",@user, method: :delete,
               data: { confirm: "You sure?" } %>
 <% end %>
 <!-- 有効な引用がページ内に存在すると引用に成功しなかった投稿されたコードも有効化するために記述。要改善 -->

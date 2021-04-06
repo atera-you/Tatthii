@@ -11,7 +11,7 @@ before_action :admin_user, only: :destroy
         @user=User.new(user_params)
         if @user.save
             log_in @user 
-            flash[:success] = "Welcome to the Sample App!"
+            flash[:success] = "User was successfully created!"
             redirect_to @user
         else
             render 'new'
@@ -29,11 +29,11 @@ before_action :admin_user, only: :destroy
 
     def update
         @user= User.find(params[:id])
-        if @user.update(user_params)
+        if  @user.update(user_params)
             flash[:success]="Profile update"
             redirect_to @user
         elsif
-        render 'edit'
+            render 'edit'
         
         end
 

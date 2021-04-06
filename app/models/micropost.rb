@@ -4,6 +4,6 @@ class Micropost < ApplicationRecord
   acts_as_taggable
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :content, presence: true,length: { minimum: 200 }
+  validates :content, presence: true,length: { minimum: 600 }
 end
 
