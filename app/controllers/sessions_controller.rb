@@ -3,15 +3,23 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user&& user.authenticate(params[:session][:password])
-      log_in user
-      params[:session][:remember_me] == '1'? remember(user):forget(user)
-      flash[:success]= "Login completed"
+    auth=request.env['omniauth.auth']
+    if auth.present?
+      user = User.find_or_create_form_auth(request.env['omniauth.auth'])
+      session[:user_id]=user.id
       redirect_back_or user
+    auth=request.env['omniauth.auth']
     else
-      flash.now[:danger] = 'invalid email/password combination'
-      render 'new'
+      user = User.find_by(email: params[:session][:email].downcase)
+      if user&& user.authenticate(params[:session][:password])
+        log_in user
+        params[:session][:remember_me] == '1'? remember(user):forget(user)
+        flash[:success]= "Login completed"
+        redirect_back_or user
+      else
+        flash.now[:danger] = 'invalid email/password combination'
+        render 'new'
+      end
     end
   end
 

@@ -36,9 +36,8 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'rmagick'
 #タグ機能の実装
 gem 'acts-as-taggable-on','~> 6.0'
-#apiの導入
-gem 'dotenv-rails', '2.7.6'
 #ツイッター連携の実装
+gem 'dotenv-rails', '2.7.6'
 gem 'omniauth-twitter', '1.4.0'
 
 #postgreSQLとの通信（herokuのため)

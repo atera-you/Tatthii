@@ -11,14 +11,15 @@ class User < ApplicationRecord
     
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
-    validates :name, presence: true, length: { maximum: 50 }
+    validates :name, presence: true, length: { maximum: 50 },unless: :uid?
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false}
+                    uniqueness: { case_sensitive: false},
+                    unless: :uid?
 
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 },allow_nil: true
+    validates :password, presence: true, length: { minimum: 6 },allow_nil: true,unless: :uid?
 
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -56,4 +57,17 @@ class User < ApplicationRecord
     def following?(other_user)
         following.include?(other_user)
     end
+
+    def self.find_or_create_from_auth(auth)
+        provider = auth[:provider]
+        uid = auth[:uid]
+        name = auth[:info][:name]
+        image = auth[:info][:image]
+        
+        self.find_or_create_by(provider: provider, uid: uid) do |user|
+            user.username = name
+            user.image_path = image
+        end
+    end
+    
 end

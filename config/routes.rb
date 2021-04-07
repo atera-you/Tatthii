@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'microposts#index'
   get '/login', to:'sessions#new'
+  get 'auth/:provider/callback', to: 'sessions#create'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
   resources :users, only:[:new, :create, :show, :edit, :update, :destroy] do
