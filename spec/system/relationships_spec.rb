@@ -14,6 +14,8 @@ RSpec.describe "Relationships", type: :system do
 
       click_on "Follow"
 
+      visit current_path
+
       end.to change(user.following, :count).by(1)
 
     end
@@ -23,9 +25,13 @@ RSpec.describe "Relationships", type: :system do
 
       click_on "Follow"
 
+      visit current_path
+
       expect do
 
       click_on "Unfollow"
+
+      visit current_path
   
       end.to change(user.following, :count).by(-1)
     end
