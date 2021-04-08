@@ -57,17 +57,17 @@ class User < ApplicationRecord
     def following?(other_user)
         following.include?(other_user)
     end
+    
 
     def self.find_or_create_from_auth(auth)
         provider = auth[:provider]
         uid = auth[:uid]
         name = auth[:info][:name]
         image = auth[:info][:image]
-        
+
         self.find_or_create_by(provider: provider, uid: uid) do |user|
             user.username = name
-            user.image_path = image
+            user.image_url = image
         end
     end
-    
 end

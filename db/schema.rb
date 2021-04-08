@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_135653) do
+ActiveRecord::Schema.define(version: 2021_04_08_144344) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2021_04_07_135653) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,6 +98,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_135653) do
     t.boolean "admin", default: false
     t.string "uid"
     t.string "provider"
+    t.string "name"
+    t.string "image_url"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

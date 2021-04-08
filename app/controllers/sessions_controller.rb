@@ -3,12 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth=request.env['omniauth.auth']
+    auth = request.env['omniauth.auth']
     if auth.present?
-      user = User.find_or_create_form_auth(request.env['omniauth.auth'])
-      session[:user_id]=user.id
+      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+      session[:user_id] = user.id
       redirect_back_or user
-    auth=request.env['omniauth.auth']
     else
       user = User.find_by(email: params[:session][:email].downcase)
       if user&& user.authenticate(params[:session][:password])

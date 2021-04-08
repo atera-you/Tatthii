@@ -37,7 +37,9 @@ gem 'rmagick'
 #タグ機能の実装
 gem 'acts-as-taggable-on','~> 6.0'
 #ツイッター連携の実装
-gem 'dotenv-rails', '2.7.6'
+gem 'dotenv-rails',  '2.7.6'
+gem 'omniauth' , '2.0.3'
+gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter', '1.4.0'
 
 #postgreSQLとの通信（herokuのため)
