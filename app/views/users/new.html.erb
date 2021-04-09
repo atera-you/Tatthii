@@ -3,6 +3,7 @@
 <h1>Sign up</h1>
 
 <div>
-<%= render 'form' %>
+  <%= render 'form' %>
 </div>
-<%= link_to "Twitterアカウントでログイン", "/auth/twitter",method: :post %>
+
+<%= link_to image_tag('twitter_log_in.png'), "/auth/twitter",method: :post,class: "twitter_log_in" %>

@@ -17,13 +17,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 #デザイン
 gem 'bootstrap-sass', '3.4.1'
+
 #安全なパスワードの実装
 gem 'bcrypt',         '3.1.13'
 #ページネーション機能の実装
@@ -36,11 +35,12 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'rmagick'
 #タグ機能の実装
 gem 'acts-as-taggable-on','~> 6.0'
-#ツイッター連携の実装
+#twitterログインの実装
 gem 'dotenv-rails',  '2.7.6'
 gem 'omniauth' , '2.0.3'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter', '1.4.0'
+
 
 #postgreSQLとの通信（herokuのため)
 group :production do

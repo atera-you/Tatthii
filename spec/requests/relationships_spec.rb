@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "Relationships", type: :request do
   describe "アクセス制御" do
 
-
     context "ログインしていないユーザーがアクセスしようとしたとき" do
       it "ログイン画面に移動すること（create）" do
         post relationships_path

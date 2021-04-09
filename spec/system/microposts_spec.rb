@@ -10,7 +10,7 @@ RSpec.describe "Microposts", type: :system do
         it "投稿が成功すること" do
           visit new_micropost_path
 
-          find('div[contenteditable]').send_keys("#{"a"*600}")
+          find('div[contenteditable]').send_keys("#{"a"*200}")
           
 
           click_button "Share"
@@ -26,7 +26,7 @@ RSpec.describe "Microposts", type: :system do
           it "投稿が失敗すること" do
             visit new_micropost_path
 
-            find('div[contenteditable]').send_keys("#{"a"*555}")
+            find('div[contenteditable]').send_keys("#{"a"*100}")
 
             click_button "Share"
 

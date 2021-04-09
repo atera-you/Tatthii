@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    
     if auth_params
       user = User.find_or_create_from_auth(auth_params)
       log_in user
