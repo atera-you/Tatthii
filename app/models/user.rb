@@ -10,7 +10,7 @@ class User < ApplicationRecord
     has_many :followers, through: :passive_relationships, source: :follower
     
     attr_accessor :remember_token
-    before_save { self.email = email.downcase }
+    #before_save { self.email = email.downcase }
     validates :name, presence: true, length: { maximum: 50 },unless: :uid?
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 255 },
@@ -57,17 +57,19 @@ class User < ApplicationRecord
     def following?(other_user)
         following.include?(other_user)
     end
-    
 
     def self.find_or_create_from_auth(auth)
-        provider = auth[:provider]
-        uid = auth[:uid]
-        name = auth[:info][:name]
-        image = auth[:info][:image]
-
-        self.find_or_create_by(provider: provider, uid: uid) do |user|
-            user.username = name
-            user.image_url = image
+        user = User.where(uid: auth.uid, provider: auth.provider).first
+        unless user
+            user = User.create!(
+            provider: auth.provider,
+            uid:      auth.uid,
+            name: auth.info.name,
+            image_url: auth.info.image,
+            password: 'zzzzzz'
+        )
         end
+        user
     end
+
 end

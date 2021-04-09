@@ -1,5 +1,6 @@
 <h1>
   <%= gravatar_for @user %>
+  <img src="<%= @user[:image_url] %>" >
   <%= @user.name %>
 </h1>
 

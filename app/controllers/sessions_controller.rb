@@ -3,11 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env['omniauth.auth']
-    if auth.present?
-      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
-      session[:user_id] = user.id
-      redirect_back_or user
+    
+    if auth_params
+      user = User.find_or_create_from_auth(auth_params)
+      log_in user
+      flash[:success]= "Login completed"
+      redirect_back_or root_path
     else
       user = User.find_by(email: params[:session][:email].downcase)
       if user&& user.authenticate(params[:session][:password])
@@ -25,5 +26,10 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to root_url
+  end
+
+  private
+  def auth_params
+    request.env['omniauth.auth']
   end
 end
