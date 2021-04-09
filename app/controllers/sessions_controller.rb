@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_from_auth(auth_params)
       log_in user
       flash[:success]= "Login completed"
-      redirect_back_or root_path
+      redirect_back_or user
     else
       user = User.find_by(email: params[:session][:email].downcase)
       if user&& user.authenticate(params[:session][:password])
