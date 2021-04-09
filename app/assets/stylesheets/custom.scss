@@ -3,8 +3,6 @@
 @import "summernote-bs4";
 
 
-
-
 /* universal */
 
 body {
@@ -109,7 +107,7 @@ body {
     display:none;
   }
   
-  @media (min-width: 800px) {
+  @media (min-width: 600px) {
   .pictures {
     margin-left: 80px;
     display:flex;
