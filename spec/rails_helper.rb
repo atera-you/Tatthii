@@ -22,8 +22,8 @@ require 'capybara/rspec'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
-
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+OmniAuth.config.test_mode = true
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -62,15 +62,15 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   #factory_botの省略記法の導入
   config.include FactoryBot::Syntax::Methods
-    # テストケース共通の事前処理
-    config.before(:each) do
-  # let(:rspec_session) で指定された値を セッションの初期値とします
+  # テストケース共通の事前処理
+  config.before(:each) do
+  # let(:rspec_session) で指定された値をセッションの初期値とする
   session = defined?(rspec_session) ? rspec_session : {}
-  # destroyメソッドを実行してもエラーにならないようにします（必要であれば）
+  # destroyメソッドを実行してもエラーにならないようにしする
   session.class_eval { def destroy; nil; end } 
   # sessionメソッドを上書き
   allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)
   end
-  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-  
+  #サポートモジュールの読み込み
+  config.include OmniauthMocks
 end

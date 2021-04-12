@@ -128,4 +128,19 @@ RSpec.describe "Users", type: :system do
     end
   end
 
+  describe "twitterログイン" do
+    before {OmniAuth.config.mock_auth[:twitter] = nil }
+    it "ログイン成功" do
+      Rails.application.env_config['omniauth.auth'] = twitter_mock
+      visit new_user_path
+      click_on "tw_button"
+      expect(current_path).to eq user_path(1) 
+    end
+    it 'ログイン失敗' do
+      Rails.application.env_config['omniauth.auth'] = twitter_invalid_mock
+      visit new_user_path
+      click_on "tw_button"
+      expect(current_path).to eq new_user_path 
+    end
+  end
 end

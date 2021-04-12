@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         flash[:success]= "Login completed"
         redirect_back_or user
       else
-        flash.now[:danger] = 'invalid email/password combination'
+        flash[:danger] = "invalid email/password combination"
         render 'new'
       end
     end
@@ -25,6 +25,12 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to root_url
+  end
+
+  def failure
+    flash[:danger] = "An unexpected error has occurred"
+    redirect_to new_user_path
+
   end
 
   private
