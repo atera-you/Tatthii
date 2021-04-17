@@ -19,6 +19,19 @@ twitterと比較した時の固有性としては
 - タグ付け機能(Gem acts-as-taggable-on)
 - タグ検索、絞り込み機能(Gem acts-as-taggable-on)
 
+## 使用技術
+フロントエンド
+- HTML/CSS
+- Sass
+- Bootstrap
+- Javascript(jquery)
+バックエンド
+- Ruby2.6.6
+- Rails6.0.3
+- Rspec
+インフラ
+- AWS(EC2)
+
 
 
 
