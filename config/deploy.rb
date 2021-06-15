@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "tatthii2"
+set :application, "tatthii"
 set :repo_url, "git@github.com:atera-you/Tatthii.git"
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :branch, ENV['BRANCH'] || "master"

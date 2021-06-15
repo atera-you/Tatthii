@@ -1,7 +1,7 @@
-server "13.114.72.7", user: "ec2-user", roles: %w{app db web}
+server "35.73.220.80", user: "aterayou", roles: %w{app db web}
 
 set :ssh_options, {
-  keys: %w(~/.ssh/tatthii2.pem),
+  keys: %w(~/.ssh/tatthii.pem),
   forward_agent: true,
   auth_methods: %w(publickey),
 }
