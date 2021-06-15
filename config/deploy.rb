@@ -4,7 +4,7 @@ lock "~> 3.16.0"
 set :application, "tatthii"
 set :repo_url, "git@github.com:atera-you/Tatthii.git"
 set :rbenv_ruby, File.read('.ruby-version').strip
-set :branch, ENV['BRANCH'] || "master"
+set :branch, ENV['BRANCH'] || "main"
 
 # Nginxの設定ファイル名と置き場所を修正
 set :nginx_config_name, "#{fetch(:application)}.conf"
