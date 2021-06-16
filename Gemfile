@@ -41,15 +41,8 @@ gem 'omniauth' , '2.0.3'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter', '1.4.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
-
-#postgreSQLとの通信（herokuのため)
-
-group :production do
   gem 'pg', '1.1.4'
-  
-end
+
 
 
 # Reduces boot times through caching; required in config/boot.rb
