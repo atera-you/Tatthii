@@ -41,7 +41,8 @@ gem 'omniauth' , '2.0.3'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter', '1.4.0'
 
-
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.3.6'
 
 #postgreSQLとの通信（herokuのため)
 
