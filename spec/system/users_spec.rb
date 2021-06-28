@@ -140,7 +140,7 @@ RSpec.describe "Users", type: :system do
       Rails.application.env_config['omniauth.auth'] = twitter_invalid_mock
       visit new_user_path
       click_on "tw_button"
-      expect(current_path).to eq new_user_path 
+      expect(current_path).not_to eq user_path(1)
     end
   end
 end

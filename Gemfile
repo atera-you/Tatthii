@@ -52,13 +52,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-
-
     #テスト用
   gem 'rspec-rails', '~> 4.0.2'
   gem 'factory_bot_rails', '~> 6.1.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'spring-commands-rspec'
+  gem 'database_cleaner-active_record'
+
 end
 
 group :development do

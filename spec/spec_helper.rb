@@ -1,4 +1,4 @@
-include ApplicationHelper
+#include ApplicationHelper
 
 module TestHelper
     def sign_in(user)
@@ -6,6 +6,7 @@ module TestHelper
     end
 
   end
+
 
 
 
