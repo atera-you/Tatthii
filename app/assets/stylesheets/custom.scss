@@ -118,7 +118,18 @@ body {
     width:50%;
     box-sizing:content-box;
   }
+
+
+  _::-webkit-full-page-media, _:future, :root .pictures{
+    display:block;
+    flex-flow:wrap;
   }
+
+
+  }
+
+
+
 
 
   .tag{
@@ -132,6 +143,8 @@ body {
   border: 1px solid #0000ee;
   border-radius: 2em;
   }
+
+
 
 
   .instructions{
