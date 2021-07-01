@@ -27,11 +27,7 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def failure
-    flash[:danger] = "An unexpected error has occurred"
-    redirect_to new_user_path
 
-  end
 
   private
   def auth_params
