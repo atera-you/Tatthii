@@ -4,6 +4,8 @@ class Micropost < ApplicationRecord
   acts_as_taggable
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :content, presence: true,length: { minimum: 200 }
+  VALID_MP_REGEX = /blockquote class=/
+  validates :content, presence: true,length: { minimum: 200 },
+                      format: { with: VALID_MP_REGEX }
 end
 

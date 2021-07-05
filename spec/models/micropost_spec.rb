@@ -10,7 +10,7 @@ RSpec.describe Micropost, type: :model do
   end
 
   it "contentが文字数不足では投稿できないこと" do
-    micropost.content="#{"a"*100}"
+    micropost.content="blockquote class=#{"a"*83}"
     expect(micropost).to be_invalid
   end
 

@@ -10,7 +10,7 @@ RSpec.describe "Microposts", type: :system do
         it "投稿が成功すること" do
           visit new_micropost_path
 
-          find('div[contenteditable]').send_keys("#{"a"*200}")
+          find('div[contenteditable]').send_keys("blockquote class=#{"a"*183}")
           
 
           click_button "Share"
@@ -26,7 +26,7 @@ RSpec.describe "Microposts", type: :system do
           it "投稿が失敗すること" do
             visit new_micropost_path
 
-            find('div[contenteditable]').send_keys("#{"a"*100}")
+            find('div[contenteditable]').send_keys("blockquote class=#{"a"*83}")
 
             click_button "Share"
 
@@ -53,10 +53,12 @@ RSpec.describe "Microposts", type: :system do
     it "投稿数が一つ減ること" do
       visit new_micropost_path
 
-      find('div[contenteditable]').send_keys("#{"a"*600}")
+      find('div[contenteditable]').send_keys("blockquote class=#{"a"*183}")
           
 
       click_button "Share"
+
+      visit user_path(user)
       
       click_on "削除"
 
