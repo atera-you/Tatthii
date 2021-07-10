@@ -30,7 +30,9 @@ twitterと比較した時の固有性としては
 - Rails6.0.3
 - Rspec
 インフラ
-- AWS(EC2)
+- AWS EC2 (Amazon Linux2)/RDS(PostgreSQL)/VPC)
+- AWS(ACM,Route53,ALB)
+- Capistrano（自動デプロイ）
 
 
 
