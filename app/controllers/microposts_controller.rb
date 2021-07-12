@@ -32,7 +32,7 @@ class MicropostsController < ApplicationController
   end
 
   def finder
-    
+    @tags = Micropost.tag_counts_on(:tags).most_used(10)
   end
 
 

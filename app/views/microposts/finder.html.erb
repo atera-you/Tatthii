@@ -5,5 +5,16 @@
       <%= f.text_field :tag_name %>
       <%= f.submit "検索" %>
     <% end %>
+
+    <div class="rank">
+      <p>人気タグ一覧</p>
+      <div class="ing">
+        <%if @tags.present?%>
+          <% @tags.each do |tag| %>
+            <span class="tag"><%= link_to tag, microposts_path(tag_name: tag) %> </span>
+          <%end%>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
