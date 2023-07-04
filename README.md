@@ -24,6 +24,7 @@ twitterと比較した時の固有性としては
 - Sass
 - Bootstrap
 - Javascript(jquery)
+
 バックエンド
 - Ruby2.6.6
 - Rails6.0.3
