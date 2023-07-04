@@ -11,7 +11,6 @@ twitterと比較した時の固有性としては
 
 ## 機能
 - 新規会員登録・ログイン機能
-- SNS 認証ログイン機能（Twitter/ Gem omniauth)
 - ユーザー情報編集機能
 - フォロー機能(ajax)
 - ツイート共有機能(Gem summernote)
@@ -29,10 +28,6 @@ twitterと比較した時の固有性としては
 - Ruby2.6.6
 - Rails6.0.3
 - Rspec
-インフラ
-- AWS EC2 (Amazon Linux2)/RDS(PostgreSQL)/VPC)
-- AWS(ACM,Route53,ALB)
-- Capistrano（自動デプロイ）
 
 
 
